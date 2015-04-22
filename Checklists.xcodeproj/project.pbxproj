@@ -13,6 +13,7 @@
 		A051746B1AE4211400BA68B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A051746A1AE4211400BA68B5 /* Images.xcassets */; };
 		A051746E1AE4211400BA68B5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A051746C1AE4211400BA68B5 /* LaunchScreen.xib */; };
 		A051747A1AE4211400BA68B5 /* ChecklistsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05174791AE4211400BA68B5 /* ChecklistsTests.swift */; };
+		A05297E21AE74FEC0017F652 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05297E11AE74FEC0017F652 /* ChecklistItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		A05174731AE4211400BA68B5 /* ChecklistsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChecklistsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A05174781AE4211400BA68B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A05174791AE4211400BA68B5 /* ChecklistsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistsTests.swift; sourceTree = "<group>"; };
+		A05297E11AE74FEC0017F652 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				A051746A1AE4211400BA68B5 /* Images.xcassets */,
 				A051746C1AE4211400BA68B5 /* LaunchScreen.xib */,
 				A05174611AE4211400BA68B5 /* Supporting Files */,
+				A05297E11AE74FEC0017F652 /* ChecklistItem.swift */,
 			);
 			path = Checklists;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A00B94641AE422F1004DC274 /* ChecklistTableViewController.swift in Sources */,
+				A05297E21AE74FEC0017F652 /* ChecklistItem.swift in Sources */,
 				A05174641AE4211400BA68B5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
