@@ -47,6 +47,19 @@ class ChecklistTableViewController: UITableViewController {
         
         super.init(coder: aDecoder)
     }
+    
+    @IBAction func addItem() {
+        let newRowIndex = _items.count
+        
+        let item = ChecklistItem()
+        item._text = "I am a new row"
+        item._checked = false
+        _items.append(item)
+        
+        let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
