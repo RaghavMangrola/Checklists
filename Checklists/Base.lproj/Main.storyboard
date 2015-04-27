@@ -36,7 +36,7 @@
                     <navigationItem key="navigationItem" title="Checklists" id="upD-ny-9fI">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="abz-47-b6o">
                             <connections>
-                                <segue destination="SF5-9W-9Hc" kind="presentation" id="brc-jt-K1u"/>
+                                <segue destination="ypU-gE-v1D" kind="presentation" id="brc-jt-K1u"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="978" y="335"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Add Item-->
         <scene sceneID="tWN-6N-FyD">
             <objects>
-                <tableViewController id="SF5-9W-9Hc" sceneMemberID="viewController">
+                <tableViewController id="SF5-9W-9Hc" customClass="AddItemViewController" customModule="Checklists" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bEL-v5-pfL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -66,10 +66,22 @@
                             <outlet property="delegate" destination="SF5-9W-9Hc" id="g3r-EV-APr"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Add Item" id="g2o-X6-Bti">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="r7a-rA-vrV">
+                            <connections>
+                                <action selector="cancel" destination="SF5-9W-9Hc" id="vSU-So-VTG"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="done" id="HiZ-Ul-gNo">
+                            <connections>
+                                <action selector="done" destination="SF5-9W-9Hc" id="VuV-e0-XlP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRc-X2-kWz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1749" y="335"/>
+            <point key="canvasLocation" x="2561" y="335"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GwD-7T-8Cg">
@@ -88,6 +100,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xpr-Oz-krL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="166" y="335"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HDU-gM-T8T">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ypU-gE-v1D" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kZ4-PF-DnC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="SF5-9W-9Hc" kind="relationship" relationship="rootViewController" id="sCe-sP-Gf9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qog-R3-djt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1749" y="335"/>
         </scene>
     </scenes>
 </document>
