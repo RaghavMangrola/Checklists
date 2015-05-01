@@ -47,19 +47,6 @@ class ChecklistTableViewController: UITableViewController, AddItemViewController
         
         super.init(coder: aDecoder)
     }
-    
-    @IBAction func addItem() {
-        let newRowIndex = _items.count
-        
-        let item = ChecklistItem()
-        item._text = "I am a new row"
-        item._checked = false
-        _items.append(item)
-        
-        let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
-        let indexPaths = [indexPath]
-        tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,7 +122,23 @@ class ChecklistTableViewController: UITableViewController, AddItemViewController
     }
     
     func addItemViewController(controller: AddItemViewController, didFinishAddingItem item: ChecklistItem) {
+        let newRowIndex = _items.count
+        
+        _items.append(item)
+        
+        let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
+        let indexPaths = [indexPath]
+        tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+        
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "AddItem" {
+            let navigationController = segue.destinationViewController as! UINavigationController
+            let controller = navigationController.topViewController as! AddItemViewController
+            controller.delegate = self
+        }
     }
 
 }
