@@ -33,7 +33,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="ypU-gE-v1D" kind="presentation" id="lqc-yq-bTU"/>
+                                    <segue destination="ypU-gE-v1D" kind="presentation" identifier="EditItem" id="lqc-yq-bTU"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
