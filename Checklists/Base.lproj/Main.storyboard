@@ -32,6 +32,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="ypU-gE-v1D" kind="presentation" id="lqc-yq-bTU"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -145,4 +148,7 @@
             <point key="canvasLocation" x="1749" y="335"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="lqc-yq-bTU"/>
+    </inferredMetricsTieBreakers>
 </document>
