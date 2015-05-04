@@ -11,25 +11,42 @@ import UIKit
 protocol AddItemViewControllerDelegate: class {
     func addItemViewControllerDidCancel(controller: AddItemViewController)
     func addItemViewController(controller: AddItemViewController, didFinishAddingItem item: ChecklistItem)
+    func addItemViewController(controller: AddItemViewController, didFinishEditingItem item: ChecklistItem)
 }
 
 class AddItemViewController: UITableViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var doneBarButton: UIBarButtonItem!
+    @IBOutlet weak var _textField: UITextField!
+    @IBOutlet weak var _doneBarButton: UIBarButtonItem!
     
-    weak var delegate: AddItemViewControllerDelegate?
+    weak var _delegate: AddItemViewControllerDelegate?
+    var _itemToEdit: ChecklistItem?
     
     @IBAction func cancel() {
-        delegate?.addItemViewControllerDidCancel(self)
+        _delegate?.addItemViewControllerDidCancel(self)
     }
     
     @IBAction func done() {
-        let item = ChecklistItem()
-        item._text = textField.text
-        item._checked = false
+        if let item = _itemToEdit {
+            item._text = _textField.text
+            _delegate?.addItemViewController(self, didFinishEditingItem: item)
+        } else {
+            let item = ChecklistItem()
+            item._text = _textField.text
+            item._checked = false
+            _delegate?.addItemViewController(self, didFinishAddingItem: item)
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.rowHeight = 44
         
-        delegate?.addItemViewController(self, didFinishAddingItem: item)
+        if let item = _itemToEdit {
+            title = "Edit Item"
+            _textField.text = item._text
+            _doneBarButton.enabled = true
+        }
     }
     
     override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
@@ -38,7 +55,7 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        textField.becomeFirstResponder()
+        _textField.becomeFirstResponder()
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -46,7 +63,7 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
         let oldText: NSString = textField.text
         let newText: NSString = oldText.stringByReplacingCharactersInRange(range, withString: string)
         
-        doneBarButton.enabled = (newText.length > 0)
+        _doneBarButton.enabled = (newText.length > 0)
         return true
     }
 }

@@ -27,13 +27,13 @@
                                         <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="√" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGD-zE-Vmi">
                                             <rect key="frame" x="15" y="8" width="12" height="27"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="ypU-gE-v1D" kind="presentation" identifier="EditItem" id="lqc-yq-bTU"/>
+                                    <segue destination="ypU-gE-v1D" kind="presentation" identifier="EditItem" trigger="accessoryAction" id="G4H-bW-bsf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -61,7 +61,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="bEL-v5-pfL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="lUa-9G-kC2">
                                 <cells>
@@ -103,8 +103,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="doneBarButton" destination="HiZ-Ul-gNo" id="TeB-gP-jDr"/>
-                        <outlet property="textField" destination="k3H-8T-dTW" id="amg-NL-Dgs"/>
+                        <outlet property="_doneBarButton" destination="HiZ-Ul-gNo" id="Ydr-VD-0EX"/>
+                        <outlet property="_textField" destination="k3H-8T-dTW" id="257-NT-gd3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRc-X2-kWz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -149,6 +149,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lqc-yq-bTU"/>
+        <segue reference="G4H-bW-bsf"/>
     </inferredMetricsTieBreakers>
 </document>
