@@ -103,8 +103,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="_doneBarButton" destination="HiZ-Ul-gNo" id="Ydr-VD-0EX"/>
-                        <outlet property="_textField" destination="k3H-8T-dTW" id="257-NT-gd3"/>
+                        <outlet property="doneBarButton" destination="HiZ-Ul-gNo" id="Ydr-VD-0EX"/>
+                        <outlet property="textField" destination="k3H-8T-dTW" id="257-NT-gd3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRc-X2-kWz" userLabel="First Responder" sceneMemberID="firstResponder"/>

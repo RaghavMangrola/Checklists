@@ -16,25 +16,25 @@ protocol ItemDetailViewControllerDelegate: class {
 
 class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var _textField: UITextField!
-    @IBOutlet weak var _doneBarButton: UIBarButtonItem!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var doneBarButton: UIBarButtonItem!
     
-    weak var _delegate: ItemDetailViewControllerDelegate?
-    var _itemToEdit: ChecklistItem?
+    weak var delegate: ItemDetailViewControllerDelegate?
+    var itemToEdit: ChecklistItem?
     
     @IBAction func cancel() {
-        _delegate?.itemDetailViewControllerDidCancel(self)
+        delegate?.itemDetailViewControllerDidCancel(self)
     }
     
     @IBAction func done() {
-        if let item = _itemToEdit {
-            item._text = _textField.text
-            _delegate?.itemDetailViewController(self, didFinishEditingItem: item)
+        if let item = itemToEdit {
+            item._text = textField.text
+            delegate?.itemDetailViewController(self, didFinishEditingItem: item)
         } else {
             let item = ChecklistItem()
-            item._text = _textField.text
+            item._text = textField.text
             item._checked = false
-            _delegate?.itemDetailViewController(self, didFinishAddingItem: item)
+            delegate?.itemDetailViewController(self, didFinishAddingItem: item)
         }
     }
     
@@ -42,10 +42,10 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         super.viewDidLoad()
         tableView.rowHeight = 44
         
-        if let item = _itemToEdit {
+        if let item = itemToEdit {
             title = "Edit Item"
-            _textField.text = item._text
-            _doneBarButton.enabled = true
+            textField.text = item._text
+            doneBarButton.enabled = true
         }
     }
     
@@ -55,7 +55,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        _textField.becomeFirstResponder()
+        textField.becomeFirstResponder()
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -63,7 +63,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         let oldText: NSString = textField.text
         let newText: NSString = oldText.stringByReplacingCharactersInRange(range, withString: string)
         
-        _doneBarButton.enabled = (newText.length > 0)
+        doneBarButton.enabled = (newText.length > 0)
         return true
     }
 }
