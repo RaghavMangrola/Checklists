@@ -15,35 +15,35 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     required init!(coder aDecoder: NSCoder!) {
         items = [ChecklistItem]()
         
-        let _row0item = ChecklistItem()
-        _row0item._text = "Walk the dog if I had one"
-        _row0item._checked = false
-        items.append(_row0item)
+        let row0item = ChecklistItem()
+        row0item._text = "Walk the dog if I had one"
+        row0item._checked = false
+        items.append(row0item)
         
-        let _row1item = ChecklistItem()
-        _row1item._text = "Brush my teeth"
-        _row1item._checked = true
-        items.append(_row1item)
+        let row1item = ChecklistItem()
+        row1item._text = "Brush my teeth"
+        row1item._checked = true
+        items.append(row1item)
         
-        let _row2item = ChecklistItem()
-        _row2item._text = "Learn iOS development"
-        _row2item._checked = true
-        items.append(_row2item)
+        let row2item = ChecklistItem()
+        row2item._text = "Learn iOS development"
+        row2item._checked = true
+        items.append(row2item)
         
-        let _row3item = ChecklistItem()
-        _row3item._text = "Gym"
-        _row3item._checked = false
-        items.append(_row3item)
+        let row3item = ChecklistItem()
+        row3item._text = "Gym"
+        row3item._checked = false
+        items.append(row3item)
         
-        let _row4item = ChecklistItem()
-        _row4item._text = "Go to Chipotle"
-        _row4item._checked = true
-        items.append(_row4item)
+        let row4item = ChecklistItem()
+        row4item._text = "Go to Chipotle"
+        row4item._checked = true
+        items.append(row4item)
         
-        let _row5item = ChecklistItem()
-        _row5item._text = "Buy new Macbook"
-        _row5item._checked = false
-        items.append(_row5item)
+        let row5item = ChecklistItem()
+        row5item._text = "Buy new Macbook"
+        row5item._checked = false
+        items.append(row5item)
         
         super.init(coder: aDecoder)
     }
