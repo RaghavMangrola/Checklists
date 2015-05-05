@@ -1,5 +1,5 @@
 //
-//  ChecklistTableViewController.swift
+//  ChecklistViewController.swift
 //  Checklists
 //
 //  Created by Raghav Mangrola on 4/19/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChecklistTableViewController: UITableViewController, ItemDetailViewControllerDelegate {
+class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
     
     var _items: [ChecklistItem]
     
