@@ -10,40 +10,40 @@ import UIKit
 
 class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
     
-    var _items: [ChecklistItem]
+    var items: [ChecklistItem]
     
     required init!(coder aDecoder: NSCoder!) {
-        _items = [ChecklistItem]()
+        items = [ChecklistItem]()
         
         let _row0item = ChecklistItem()
         _row0item._text = "Walk the dog if I had one"
         _row0item._checked = false
-        _items.append(_row0item)
+        items.append(_row0item)
         
         let _row1item = ChecklistItem()
         _row1item._text = "Brush my teeth"
         _row1item._checked = true
-        _items.append(_row1item)
+        items.append(_row1item)
         
         let _row2item = ChecklistItem()
         _row2item._text = "Learn iOS development"
         _row2item._checked = true
-        _items.append(_row2item)
+        items.append(_row2item)
         
         let _row3item = ChecklistItem()
         _row3item._text = "Gym"
         _row3item._checked = false
-        _items.append(_row3item)
+        items.append(_row3item)
         
         let _row4item = ChecklistItem()
         _row4item._text = "Go to Chipotle"
         _row4item._checked = true
-        _items.append(_row4item)
+        items.append(_row4item)
         
         let _row5item = ChecklistItem()
         _row5item._text = "Buy new Macbook"
         _row5item._checked = false
-        _items.append(_row5item)
+        items.append(_row5item)
         
         super.init(coder: aDecoder)
     }
@@ -64,14 +64,14 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return _items.count
+        return items.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("ChecklistItem") as! UITableViewCell
         
-        let item = _items[indexPath.row]
+        let item = items[indexPath.row]
         
         let label = cell.viewWithTag(1000) as! UILabel
         label.text = item._text
@@ -84,7 +84,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if let cell = tableView.cellForRowAtIndexPath(indexPath) {
-            let item = _items[indexPath.row]
+            let item = items[indexPath.row]
             item._checked = !item._checked
             
             configureTextForCell(cell, withCheclistItem: item)
@@ -95,7 +95,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         // 1
-        _items.removeAtIndex(indexPath.row)
+        items.removeAtIndex(indexPath.row)
         
         //2
         let indexPaths = [indexPath]
@@ -123,9 +123,9 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     }
     
     func itemDetailViewController(controller: ItemDetailViewController, didFinishAddingItem item: ChecklistItem) {
-        let newRowIndex = _items.count
+        let newRowIndex = items.count
         
-        _items.append(item)
+        items.append(item)
         
         let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
         let indexPaths = [indexPath]
@@ -135,7 +135,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     }
     
     func itemDetailViewController(controller: ItemDetailViewController, didFinishEditingItem item: ChecklistItem) {
-        if let index = find(_items, item) {
+        if let index = find(items, item) {
             let indexPath = NSIndexPath (forRow: index, inSection: 0)
             if let cell = tableView.cellForRowAtIndexPath(indexPath) {
                 configureTextForCell(cell, withCheclistItem: item)
@@ -155,7 +155,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
             controller._delegate = self
             
             if let indexPath = tableView.indexPathForCell(sender as! UITableViewCell) {
-                controller._itemToEdit = _items[indexPath.row]
+                controller._itemToEdit = items[indexPath.row]
             }
         }
     }
