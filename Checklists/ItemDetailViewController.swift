@@ -1,5 +1,5 @@
 //
-//  AddItemViewController.swift
+//  ItemDetailViewController.swift
 //  Checklists
 //
 //  Created by Raghav Mangrola on 4/26/15.
@@ -8,33 +8,33 @@
 
 import UIKit
 
-protocol AddItemViewControllerDelegate: class {
-    func addItemViewControllerDidCancel(controller: AddItemViewController)
-    func addItemViewController(controller: AddItemViewController, didFinishAddingItem item: ChecklistItem)
-    func addItemViewController(controller: AddItemViewController, didFinishEditingItem item: ChecklistItem)
+protocol ItemDetailViewControllerDelegate: class {
+    func itemDetailViewControllerDidCancel(controller: ItemDetailViewController)
+    func itemDetailViewController(controller: ItemDetailViewController, didFinishAddingItem item: ChecklistItem)
+    func itemDetailViewController(controller: ItemDetailViewController, didFinishEditingItem item: ChecklistItem)
 }
 
-class AddItemViewController: UITableViewController, UITextFieldDelegate {
+class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
 
     @IBOutlet weak var _textField: UITextField!
     @IBOutlet weak var _doneBarButton: UIBarButtonItem!
     
-    weak var _delegate: AddItemViewControllerDelegate?
+    weak var _delegate: ItemDetailViewControllerDelegate?
     var _itemToEdit: ChecklistItem?
     
     @IBAction func cancel() {
-        _delegate?.addItemViewControllerDidCancel(self)
+        _delegate?.itemDetailViewControllerDidCancel(self)
     }
     
     @IBAction func done() {
         if let item = _itemToEdit {
             item._text = _textField.text
-            _delegate?.addItemViewController(self, didFinishEditingItem: item)
+            _delegate?.itemDetailViewController(self, didFinishEditingItem: item)
         } else {
             let item = ChecklistItem()
             item._text = _textField.text
             item._checked = false
-            _delegate?.addItemViewController(self, didFinishAddingItem: item)
+            _delegate?.itemDetailViewController(self, didFinishAddingItem: item)
         }
     }
     
