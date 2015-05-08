@@ -28,12 +28,12 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     
     @IBAction func done() {
         if let item = itemToEdit {
-            item._text = textField.text
+            item.text = textField.text
             delegate?.itemDetailViewController(self, didFinishEditingItem: item)
         } else {
             let item = ChecklistItem()
-            item._text = textField.text
-            item._checked = false
+            item.text = textField.text
+            item.checked = false
             delegate?.itemDetailViewController(self, didFinishAddingItem: item)
         }
     }
@@ -44,7 +44,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
         
         if let item = itemToEdit {
             title = "Edit Item"
-            textField.text = item._text
+            textField.text = item.text
             doneBarButton.enabled = true
         }
     }
