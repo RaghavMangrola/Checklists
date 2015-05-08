@@ -24,4 +24,8 @@ class ChecklistItem: NSObject, NSCoding {
     required init(coder aDecoder: NSCoder) {
         super.init()
     }
+    
+    override init() {
+        super.init()
+    }
 }
