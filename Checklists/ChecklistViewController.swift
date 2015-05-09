@@ -12,6 +12,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
     var items: [ChecklistItem]
     
+    
     required init!(coder aDecoder: NSCoder!) {
         items = [ChecklistItem]()
         
