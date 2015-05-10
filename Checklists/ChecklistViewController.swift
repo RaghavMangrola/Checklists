@@ -46,7 +46,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     let label = cell.viewWithTag(1000) as! UILabel
     label.text = item.text
     
-    configureTextForCell(cell, withCheclistItem: item)
+    configureTextForCell(cell, withChecklistItem: item)
     configureCheckmarkForCell(cell, withChecklistItem: item)
     return cell
   }
@@ -57,7 +57,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
       let item = items[indexPath.row]
       item.checked = !item.checked
       
-      configureTextForCell(cell, withCheclistItem: item)
+      configureTextForCell(cell, withChecklistItem: item)
       configureCheckmarkForCell(cell, withChecklistItem: item)
     }
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -101,7 +101,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     
   }
   
-  func configureTextForCell(cell: UITableViewCell, withCheclistItem item: ChecklistItem) {
+  func configureTextForCell(cell: UITableViewCell, withChecklistItem item: ChecklistItem) {
     let label = cell.viewWithTag(1000) as! UILabel
     label.text = item.text
   }
@@ -127,7 +127,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     if let index = find(items, item) {
       let indexPath = NSIndexPath (forRow: index, inSection: 0)
       if let cell = tableView.cellForRowAtIndexPath(indexPath) {
-        configureTextForCell(cell, withCheclistItem: item)
+        configureTextForCell(cell, withChecklistItem: item)
       }
     }
     dismissViewControllerAnimated(true, completion: nil)
@@ -146,7 +146,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
   func saveChecklistItems() {
     let data = NSMutableData()
     let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
-    archiver.encodeObject(items, forKey: "ChecklsitItems")
+    archiver.encodeObject(items, forKey: "ChecklistItems")
     archiver.finishEncoding()
     data.writeToFile(dataFilePath(), atomically: true)
   }
