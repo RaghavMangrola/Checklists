@@ -16,16 +16,12 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
     items = [ChecklistItem]()
     super.init(coder: aDecoder)
     loadChecklistItems()
+    println("Documents folder is \(documentsDirectory())")
+    println("Data file path is \(dataFilePath())")
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = false
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem()
   }
   
   override func didReceiveMemoryWarning() {
