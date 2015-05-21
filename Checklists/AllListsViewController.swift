@@ -56,18 +56,29 @@ class AllListsViewController: UITableViewController {
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cellIdentifier = "Cell"
     var cell: UITableViewCell! = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
+    println("cell = \(cell) __ \(indexPath.row)")
     
     if cell == nil {
       cell = UITableViewCell(style: .Default, reuseIdentifier: cellIdentifier)
+      println("cell if = \(cell)")
     }
-
+    
     let checklist = lists[indexPath.row]
     cell.textLabel!.text = checklist.name
     cell.accessoryType = .DetailDisclosureButton
+    println("cell end = \(cell)")
     return cell
   }
   
   override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    performSegueWithIdentifier("ShowChecklist", sender: nil)
+    let checklist = lists[indexPath.row]
+    performSegueWithIdentifier("ShowChecklist", sender: checklist)
+  }
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "ShowChecklist" {
+      let controller = segue.destinationViewController as! ChecklistViewController
+      controller.checklist = sender as! Checklist
+    }
   }
 }
