@@ -22,7 +22,7 @@ class Checklist: NSObject, NSCoding {
     items = aDecoder.decodeObjectForKey("Items") as! [ChecklistItem]
     super.init()
   }
-  
+   
   func encodeWithCoder(aCoder: NSCoder) {
     aCoder.encodeObject(name, forKey: "Name")
     aCoder.encodeObject(items, forKey: "Items")

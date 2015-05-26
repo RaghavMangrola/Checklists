@@ -18,6 +18,7 @@
 		A051747A1AE4211400BA68B5 /* ChecklistsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05174791AE4211400BA68B5 /* ChecklistsTests.swift */; };
 		A05297E21AE74FEC0017F652 /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05297E11AE74FEC0017F652 /* ChecklistItem.swift */; };
 		A0646C081B0DA106009065C8 /* ListDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0646C071B0DA106009065C8 /* ListDetailViewController.swift */; };
+		A0FC4DA81B15091D004F10AC /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FC4DA71B15091D004F10AC /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		A05174791AE4211400BA68B5 /* ChecklistsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistsTests.swift; sourceTree = "<group>"; };
 		A05297E11AE74FEC0017F652 /* ChecklistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		A0646C071B0DA106009065C8 /* ListDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListDetailViewController.swift; sourceTree = "<group>"; };
+		A0FC4DA71B15091D004F10AC /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				A0646C071B0DA106009065C8 /* ListDetailViewController.swift */,
 				A05297E11AE74FEC0017F652 /* ChecklistItem.swift */,
 				A04F9AAC1B0AF69F00F4105D /* Checklist.swift */,
+				A0FC4DA71B15091D004F10AC /* DataModel.swift */,
 				A05174671AE4211400BA68B5 /* Main.storyboard */,
 				A051746A1AE4211400BA68B5 /* Images.xcassets */,
 				A051746C1AE4211400BA68B5 /* LaunchScreen.xib */,
@@ -232,6 +235,7 @@
 				A01944EB1AEDEDD30098CBB1 /* ItemDetailViewController.swift in Sources */,
 				A04F9AAD1B0AF69F00F4105D /* Checklist.swift in Sources */,
 				A05297E21AE74FEC0017F652 /* ChecklistItem.swift in Sources */,
+				A0FC4DA81B15091D004F10AC /* DataModel.swift in Sources */,
 				A002AE031B01B90D007274E9 /* AllListsViewController.swift in Sources */,
 				A05174641AE4211400BA68B5 /* AppDelegate.swift in Sources */,
 			);
