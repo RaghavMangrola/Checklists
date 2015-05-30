@@ -14,8 +14,6 @@ protocol ListDetailViewControllerDelegate: class {
   func listDetailViewController(controller: ListDetailViewController, didFinishEditingChecklist checklist: Checklist)
 }
 
-
-
 class ListDetailViewController: UITableViewController, UITextFieldDelegate {
   @IBOutlet weak var textField: UITextField!
   @IBOutlet weak var doneBarButton: UIBarButtonItem!
