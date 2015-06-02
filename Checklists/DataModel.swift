@@ -10,6 +10,14 @@ import Foundation
 
 class DataModel {
   var lists = [Checklist]()
+  var indexOfSelectedChecklists: Int {
+    get {
+      return NSUserDefaults.standardUserDefaults().integerForKey("ChecklistIndex")
+    }
+    set {
+      NSUserDefaults.standardUserDefaults().setInteger(newValue, forKey: "ChecklistIndex")
+    }
+  }
   
   init() {
     loadChecklists()
