@@ -20,6 +20,20 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    println("viewDidLoad in AllListsViewController has run")
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    navigationController?.delegate = self
+    
+    let index = NSUserDefaults.standardUserDefaults().integerForKey("ChecklistIndex")
+    if index != -1 {
+      let checklist = dataModel.lists[index]
+      performSegueWithIdentifier("ShowChecklist", sender: checklist)
+    }
+    println("viewDidAppear in AllListsViewController has run")
   }
   
   override func didReceiveMemoryWarning() {
@@ -38,17 +52,14 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cellIdentifier = "Cell"
     var cell: UITableViewCell! = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
-    println("cell = \(cell) __ \(indexPath.row)")
     
     if cell == nil {
       cell = UITableViewCell(style: .Default, reuseIdentifier: cellIdentifier)
-      println("cell if = \(cell)")
     }
     
     let checklist = dataModel.lists[indexPath.row]
     cell.textLabel!.text = checklist.name
     cell.accessoryType = .DetailDisclosureButton
-    println("cell end = \(cell)")
     return cell
   }
   
@@ -116,6 +127,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
   func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
     if viewController === self {
       NSUserDefaults.standardUserDefaults().setInteger(-1, forKey: "ChecklistIndex")
+      println("navigationController in AllListsViewController has run")
     }
   }
   

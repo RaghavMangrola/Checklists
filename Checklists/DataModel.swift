@@ -13,6 +13,8 @@ class DataModel {
   
   init() {
     loadChecklists()
+    registerDefaults()
+    println("init in DataModel has run")
   }
   
   func documentsDirectory() -> String {
@@ -41,6 +43,11 @@ class DataModel {
         unarchiver.finishDecoding()
       }
     }
+  }
+  
+  func registerDefaults() {
+    let dictionary = ["ChecklistIndex": -1]
+    NSUserDefaults.standardUserDefaults().registerDefaults(dictionary)
   }
 }
 
