@@ -22,7 +22,8 @@ class DataModel {
   init() {
     loadChecklists()
     registerDefaults()
-    println("init in DataModel has run")
+    handleFirstTime()
+    println("DataModel\n\tinit()")
   }
   
   func documentsDirectory() -> String {
@@ -54,8 +55,27 @@ class DataModel {
   }
   
   func registerDefaults() {
-    let dictionary = ["ChecklistIndex": -1]
+    let dictionary = ["FirstTime": true]
     NSUserDefaults.standardUserDefaults().registerDefaults(dictionary)
+  }
+  
+  /**
+     First we check NSUserDefaults for the value of the "FirstTime"
+     key. If it's true then the following if-statement is run so
+     a new Checklist object is created and added to the array.
+  */
+  func handleFirstTime() {
+
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    let firstTime = userDefaults.boolForKey("FirstTime")
+    if firstTime {
+      let checklist = Checklist(name: "List")
+      lists.append(checklist)
+      indexOfSelectedChecklists = 0
+      userDefaults.setBool(false, forKey: "FirstTime")
+      println("DataModel\n\thandleFirstTime()\n\t\tif-statement ran")
+    }
+    println("DataModel\n\thandleFirstTime() is \(firstTime)")
   }
 }
 

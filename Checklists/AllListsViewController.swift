@@ -20,7 +20,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    println("viewDidLoad in AllListsViewController has run")
+    println("AllListsViewController\n\tviewDidLoad()")
   }
   
   override func viewDidAppear(animated: Bool) {
@@ -33,7 +33,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
       let checklist = dataModel.lists[index]
       performSegueWithIdentifier("ShowChecklist", sender: checklist)
     }
-    println("viewDidAppear in AllListsViewController has run")
+    println("AllListsViewController\n\tviewDidAppear()")
   }
   
   override func didReceiveMemoryWarning() {
@@ -127,7 +127,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
   func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
     if viewController === self {
       dataModel.indexOfSelectedChecklists = -1
-      println("navigationController in AllListsViewController has run")
+      println("AllListsViewController\n\tnavigationController(willShowViewController)")
     }
   }
   
