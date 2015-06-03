@@ -27,4 +27,20 @@ class Checklist: NSObject, NSCoding {
     aCoder.encodeObject(name, forKey: "Name")
     aCoder.encodeObject(items, forKey: "Items")
   }
+  
+  /**
+      This method can ask any Checklist object how many of it's ChecklistItem object are not checked yet. "if !item.checked" translates to "if not item.checked" in english
+  
+      :returns: returns count of unchecked items
+    */
+  func countUncheckedItems() -> Int {
+    var count = 0
+    for item in items {
+      if !item.checked {
+        count += 1
+      }
+    }
+    println("Checklist\n\tcountUncheckedItems()\n\tNumber of unchecked items is \(count)")
+    return count
+  }
 }
