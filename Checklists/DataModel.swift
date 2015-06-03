@@ -50,6 +50,7 @@ class DataModel {
         let unarchiver =  NSKeyedUnarchiver(forReadingWithData: data)
         lists = unarchiver.decodeObjectForKey("Checklists") as! [Checklist]
         unarchiver.finishDecoding()
+        sortChecklists()
       }
     }
   }
@@ -76,6 +77,13 @@ class DataModel {
       println("DataModel\n\thandleFirstTime()\n\t\tif-statement ran")
     }
     println("DataModel\n\thandleFirstTime() is \(firstTime)")
+  }
+  /**
+      Tells the lists array that the Checklists it contains should be sorted using this formula. The forumla is insaide a closure { }. The sort algorithm will repeatedly ask if one Checklist object comes before another, based on our rules for sorting. We chose to sort by name so localizedStandardCompare() will compare the two name strings, it takes into considereation the rules of the current locale. "a" and "A" are considered equal.
+    */
+  func sortChecklists() {
+    lists.sort({checklist1, checklist2 in return checklist1.name.localizedStandardCompare(checklist2.name) == NSComparisonResult.OrderedAscending})
+    println("DataModel\n\tsortChecklists()")
   }
 }
 
