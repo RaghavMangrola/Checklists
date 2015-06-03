@@ -40,7 +40,7 @@ class Checklist: NSObject, NSCoding {
         count += 1
       }
     }
-    println("Checklist\n\tcountUncheckedItems()\n\tNumber of unchecked items is \(count)")
+    println("Checklist\n\tcountUncheckedItems() \n\t\tNumber of unchecked items in \(name) is \(count)")
     return count
   }
 }

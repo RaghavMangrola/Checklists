@@ -36,6 +36,15 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     println("AllListsViewController\n\tviewDidAppear()")
   }
   
+  /** 
+      Runs when the view is about to become visible but the animation hasn't started yet. "tableView.reloadData" will cause tableView(cellForRowAtIndexPath) to be called again for every visible row.
+    */
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    tableView.reloadData()
+    println("AllListsViewController\n\tviewWillAppear()")
+  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -54,12 +63,25 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     var cell: UITableViewCell! = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
     
     if cell == nil {
-      cell = UITableViewCell(style: .Default, reuseIdentifier: cellIdentifier)
+      cell = UITableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
     }
     
     let checklist = dataModel.lists[indexPath.row]
     cell.textLabel!.text = checklist.name
     cell.accessoryType = .DetailDisclosureButton
+    
+    let count = checklist.countUncheckedItems()
+    // checklist.items.count returns how many items are in the checklist array
+    if checklist.items.count == 0 {
+      cell.detailTextLabel!.text = "(No items)"
+    } else if count == 0{
+      cell.detailTextLabel!.text = "All Done!"
+    } else {
+      cell.detailTextLabel!.text = "\(count) Remaining"
+    }
+    
+    println("AllListsViewController\n\ttableView(cellForRowAtIndexPath)")
+    
     return cell
   }
   
