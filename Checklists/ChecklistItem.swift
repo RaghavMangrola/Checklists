@@ -12,6 +12,12 @@ class ChecklistItem: NSObject, NSCoding {
   var text = ""
   var checked = false
   
+  init (text: String, checked: Bool){
+    self.text = "Test"
+    self.checked = true
+    super.init()
+  }
+  
   func toggleChecked() {
     checked = !checked
   }
