@@ -26,6 +26,14 @@ class DataModel {
     println("DataModel\n\tinit()")
   }
   
+  class func nextChecklistItemID() -> Int {
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    let itemID = userDefaults.integerForKey("ChecklistItemID")
+    userDefaults.setInteger(itemID + 1, forKey: "ChecklistItemID")
+    userDefaults.synchronize()
+    return itemID
+  }
+  
   func documentsDirectory() -> String {
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as! [String]
     return paths[0]
@@ -56,22 +64,21 @@ class DataModel {
   }
   
   func registerDefaults() {
-    let dictionary = ["FirstTime": true]
+    let dictionary = ["ChecklistIndex": -1, "FirstTime":true, "ChecklistItemID": 0 ]
     NSUserDefaults.standardUserDefaults().registerDefaults(dictionary)
   }
   
   /**
-     First we check NSUserDefaults for the value of the "FirstTime"
-     key. If it's true then the following if-statement is run so
-     a new Checklist object is created and added to the array.
+  First we check NSUserDefaults for the value of the "FirstTime"
+  key. If it's true then the following if-statement is run so
+  a new Checklist object is created and added to the array.
   */
   func handleFirstTime() {
-
+    
     let userDefaults = NSUserDefaults.standardUserDefaults()
     let firstTime = userDefaults.boolForKey("FirstTime")
     if firstTime {
       let checklist = Checklist(name: "List")
-      let checklistItem = ChecklistItem(text: "Test", checked: false)
       lists.append(checklist)
       indexOfSelectedChecklists = 0
       userDefaults.setBool(false, forKey: "FirstTime")
@@ -80,11 +87,10 @@ class DataModel {
     println("DataModel\n\thandleFirstTime() is \(firstTime)")
   }
   /**
-      Tells the lists array that the Checklists it contains should be sorted using this formula. The forumla is insaide a closure { }. The sort algorithm will repeatedly ask if one Checklist object comes before another, based on our rules for sorting. We chose to sort by name so localizedStandardCompare() will compare the two name strings, it takes into considereation the rules of the current locale. "a" and "A" are considered equal.
-    */
+  Tells the lists array that the Checklists it contains should be sorted using this formula. The forumla is insaide a closure { }. The sort algorithm will repeatedly ask if one Checklist object comes before another, based on our rules for sorting. We chose to sort by name so localizedStandardCompare() will compare the two name strings, it takes into considereation the rules of the current locale. "a" and "A" are considered equal.
+  */
   func sortChecklists() {
     lists.sort({checklist1, checklist2 in return checklist1.name.localizedStandardCompare(checklist2.name) == NSComparisonResult.OrderedAscending})
     println("DataModel\n\tsortChecklists()")
   }
 }
-
