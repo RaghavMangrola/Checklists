@@ -26,14 +26,6 @@ class DataModel {
     println("DataModel\n\tinit()")
   }
   
-  class func nextChecklistItemID() -> Int {
-    let userDefaults = NSUserDefaults.standardUserDefaults()
-    let itemID = userDefaults.integerForKey("ChecklistItemID")
-    userDefaults.setInteger(itemID + 1, forKey: "ChecklistItemID")
-    userDefaults.synchronize()
-    return itemID
-  }
-  
   func documentsDirectory() -> String {
     let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) as! [String]
     return paths[0]
@@ -64,7 +56,7 @@ class DataModel {
   }
   
   func registerDefaults() {
-    let dictionary = ["ChecklistIndex": -1, "FirstTime":true, "ChecklistItemID": 0 ]
+    let dictionary = ["FirstTime": true]
     NSUserDefaults.standardUserDefaults().registerDefaults(dictionary)
   }
   
@@ -79,6 +71,7 @@ class DataModel {
     let firstTime = userDefaults.boolForKey("FirstTime")
     if firstTime {
       let checklist = Checklist(name: "List")
+      let checklistItem = ChecklistItem(text: "Test", checked: false)
       lists.append(checklist)
       indexOfSelectedChecklists = 0
       userDefaults.setBool(false, forKey: "FirstTime")
