@@ -81,6 +81,10 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     return true
   }
   
+  /**
+  We're formatting the time here. We have a style to the Date (MediumStyle) and a style for the time (ShortStyle)
+  Then we ask it to format the NSDate Object (dueDate) into a string
+  */
   func updateDueDateLabel() {
     let formatter = NSDateFormatter()
     formatter.dateStyle = .MediumStyle
@@ -88,6 +92,11 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     dueDateLabel.text = formatter.stringFromDate(dueDate)
   }
   
+  /**
+  indexPathDateRow is saying that the datePicker should show up in the second Row, and the second Section (index starts at 0)
+  indexPathDatePicker is saying that the datePicker should show up in the third Row, and the second Section (index starts at 0)
+  Then we insertRowsAtIndexPaths(indexPathdatePicker) because there are only two rows being show.
+  */
   func showDatePicker() {
     datePickerVisible = true
     
@@ -109,8 +118,14 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     }
   }
   
+  /**
+  
+  */
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    //1. Check whether this is the index-path for the row with the date picker
     if indexPath.section == 1 && indexPath.row == 2 {
+      //2. Ask the table viw whether it already has the date picker cell. If not, then create a new one. The selection style is .none
+      // because you don't want to show a selected state for this cell when the user taps it. 
       var cell: UITableViewCell! = tableView.dequeueReusableCellWithIdentifier("DatePickerCell") as? UITableViewCell
       if cell == nil {
         cell = UITableViewCell(style: .Default, reuseIdentifier: "DatePickerCell")

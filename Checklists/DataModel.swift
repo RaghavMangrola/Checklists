@@ -26,6 +26,18 @@ class DataModel {
     println("DataModel\n\tinit()")
   }
   
+  /**
+  This asks the DataModel object for a new item ID whenever the app creates a new ChecklistItem object.
+  Starts at -1 because nextChecklistitemID() adds 1, and we start the index at 0
+  */
+  func registerDefaults() {
+    let dictionary = ["ChecklistIndex": -1, "FirstTime":true, "ChecklistItemID": 0 ]
+    NSUserDefaults.standardUserDefaults().registerDefaults(dictionary)
+  }
+  
+  /**
+  This asks the DataModel object for a new item ID whenever the app creates a new ChecklistItem object.
+  */
   class func nextChecklistItemID() -> Int {
     let userDefaults = NSUserDefaults.standardUserDefaults()
     let itemID = userDefaults.integerForKey("ChecklistItemID")
@@ -63,10 +75,7 @@ class DataModel {
     }
   }
   
-  func registerDefaults() {
-    let dictionary = ["ChecklistIndex": -1, "FirstTime":true, "ChecklistItemID": 0 ]
-    NSUserDefaults.standardUserDefaults().registerDefaults(dictionary)
-  }
+
   
   /**
   First we check NSUserDefaults for the value of the "FirstTime"
