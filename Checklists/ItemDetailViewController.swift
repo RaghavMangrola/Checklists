@@ -112,6 +112,7 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
     tableView.reloadRowsAtIndexPaths([indexPathDateRow], withRowAnimation: .None)
     tableView.endUpdates()
     
+    // This locates the UIDatePicker component in the new cell, and give it the proper date
     if let pickerCell = tableView.cellForRowAtIndexPath(indexPathDatePicker) {
       let datePicker = pickerCell.viewWithTag(100) as! UIDatePicker
       datePicker.setDate(dueDate, animated: false)
@@ -124,20 +125,27 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     //1. Check whether this is the index-path for the row with the date picker
     if indexPath.section == 1 && indexPath.row == 2 {
-      //2. Ask the table viw whether it already has the date picker cell. If not, then create a new one. The selection style is .none
+      //2. Ask the table view whether it already has the date picker cell. If not, then create a new one. The selection style is .none
       // because you don't want to show a selected state for this cell when the user taps it. 
       var cell: UITableViewCell! = tableView.dequeueReusableCellWithIdentifier("DatePickerCell") as? UITableViewCell
       if cell == nil {
         cell = UITableViewCell(style: .Default, reuseIdentifier: "DatePickerCell")
         cell.selectionStyle = .None
-        
+        //3. Create a new UIDatePicker component. It has a tag (100) so you can easily find this date picker later.
         let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 320, height: 216))
         datePicker.tag = 100
         cell.contentView.addSubview(datePicker)
-        
+        //4. Tell the date picker to call the method dateChanged() whenver the user picks a new date. You have seen how to connect actions methods from
+        // Interface Buidler; this is how you do it from code.
+        // You put the name of the method inside a string. The : after the name signifies that dateChanged() takes a single parameter, which will be a reference
+        // to the UIDatePicker.
+        // The Selector() thingie tells Swift that this isn't a normal string but the name of a method. Now the UIDatePicker's Value Changed event triggers the dateChanged()
+        // Method
         datePicker.addTarget(self, action: Selector("dateChanged:"), forControlEvents: .ValueChanged)
       }
       return cell
+    //5. For any index-paths that are not the date picker cell, call through to super (which is UITableViewController). This is the trick that makes sure the
+    // static cells still work
     } else {
       return super.tableView(tableView, cellForRowAtIndexPath: indexPath)
     }
