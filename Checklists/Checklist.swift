@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import XCGLogger
 
 class Checklist: NSObject, NSCoding {
   var name = ""

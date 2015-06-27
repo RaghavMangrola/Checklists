@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import XCGLogger
 
 class ChecklistViewController: UITableViewController, ItemDetailViewControllerDelegate {
   

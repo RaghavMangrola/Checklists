@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import XCGLogger
 
 protocol IconPickerViewControllerDelegate: class {
   func iconPicker(picker: IconPickerViewController, didPickIcon iconName: String)

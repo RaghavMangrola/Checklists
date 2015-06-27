@@ -11,6 +11,8 @@
 		A00B94641AE422F1004DC274 /* ChecklistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00B94631AE422F1004DC274 /* ChecklistViewController.swift */; };
 		A01944EB1AEDEDD30098CBB1 /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01944EA1AEDEDD30098CBB1 /* ItemDetailViewController.swift */; };
 		A01D3A621B1FE6C5006C9F70 /* IconPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A01D3A611B1FE6C5006C9F70 /* IconPickerViewController.swift */; };
+		A0426A5C1B3F63FA00418459 /* XCGLogger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0426A541B3F634000418459 /* XCGLogger.framework */; };
+		A0426A5D1B3F63FA00418459 /* XCGLogger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A0426A541B3F634000418459 /* XCGLogger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A04F9AAD1B0AF69F00F4105D /* Checklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A04F9AAC1B0AF69F00F4105D /* Checklist.swift */; };
 		A05174641AE4211400BA68B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A05174631AE4211400BA68B5 /* AppDelegate.swift */; };
 		A05174691AE4211400BA68B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A05174671AE4211400BA68B5 /* Main.storyboard */; };
@@ -22,6 +24,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		A0426A531B3F634000418459 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0426A4D1B3F634000418459 /* XCGLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55E3EE4519D76F280068C3A7;
+			remoteInfo = "XCGLogger (iOS)";
+		};
+		A0426A551B3F634000418459 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0426A4D1B3F634000418459 /* XCGLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 554DF41719D76FE7005708BE;
+			remoteInfo = "XCGLogger (OS X)";
+		};
+		A0426A571B3F634000418459 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0426A4D1B3F634000418459 /* XCGLogger.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 55E3EE5019D76F280068C3A7;
+			remoteInfo = XCGLoggerTests;
+		};
+		A0426A5A1B3F63EC00418459 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0426A4D1B3F634000418459 /* XCGLogger.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 55E3EE4419D76F280068C3A7;
+			remoteInfo = "XCGLogger (iOS)";
+		};
+		A0426A5E1B3F63FA00418459 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A0426A4D1B3F634000418459 /* XCGLogger.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 55E3EE4419D76F280068C3A7;
+			remoteInfo = "XCGLogger (iOS)";
+		};
 		A05174741AE4211400BA68B5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A05174561AE4211400BA68B5 /* Project object */;
@@ -31,11 +68,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A0426A601B3F63FA00418459 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A0426A5D1B3F63FA00418459 /* XCGLogger.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A002AE021B01B90D007274E9 /* AllListsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllListsViewController.swift; sourceTree = "<group>"; };
 		A00B94631AE422F1004DC274 /* ChecklistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ChecklistViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A01944EA1AEDEDD30098CBB1 /* ItemDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ItemDetailViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A01D3A611B1FE6C5006C9F70 /* IconPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconPickerViewController.swift; sourceTree = "<group>"; };
+		A0426A4D1B3F634000418459 /* XCGLogger.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XCGLogger.xcodeproj; path = ../../Libraries/XCGLogger/XCGLogger/Library/XCGLogger.xcodeproj; sourceTree = "<group>"; };
 		A04F9AAC1B0AF69F00F4105D /* Checklist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checklist.swift; sourceTree = "<group>"; };
 		A051745E1AE4211400BA68B5 /* Checklists.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklists.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A05174621AE4211400BA68B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0426A5C1B3F63FA00418459 /* XCGLogger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +121,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A0426A4E1B3F634000418459 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A0426A541B3F634000418459 /* XCGLogger.framework */,
+				A0426A561B3F634000418459 /* XCGLogger.framework */,
+				A0426A581B3F634000418459 /* XCGLoggerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		A05174551AE4211400BA68B5 = {
 			isa = PBXGroup;
 			children = (
 				A05174601AE4211400BA68B5 /* Checklists */,
 				A05174761AE4211400BA68B5 /* ChecklistsTests */,
 				A051745F1AE4211400BA68B5 /* Products */,
+				A0426A4D1B3F634000418459 /* XCGLogger.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,10 +204,13 @@
 				A051745A1AE4211400BA68B5 /* Sources */,
 				A051745B1AE4211400BA68B5 /* Frameworks */,
 				A051745C1AE4211400BA68B5 /* Resources */,
+				A0426A601B3F63FA00418459 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A0426A5B1B3F63EC00418459 /* PBXTargetDependency */,
+				A0426A5F1B3F63FA00418459 /* PBXTargetDependency */,
 			);
 			name = Checklists;
 			productName = Checklists;
@@ -198,6 +265,12 @@
 			mainGroup = A05174551AE4211400BA68B5;
 			productRefGroup = A051745F1AE4211400BA68B5 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A0426A4E1B3F634000418459 /* Products */;
+					ProjectRef = A0426A4D1B3F634000418459 /* XCGLogger.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A051745D1AE4211400BA68B5 /* Checklists */,
@@ -205,6 +278,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A0426A541B3F634000418459 /* XCGLogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XCGLogger.framework;
+			remoteRef = A0426A531B3F634000418459 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A0426A561B3F634000418459 /* XCGLogger.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XCGLogger.framework;
+			remoteRef = A0426A551B3F634000418459 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		A0426A581B3F634000418459 /* XCGLoggerTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = XCGLoggerTests.xctest;
+			remoteRef = A0426A571B3F634000418459 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A051745C1AE4211400BA68B5 /* Resources */ = {
@@ -253,6 +350,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		A0426A5B1B3F63EC00418459 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "XCGLogger (iOS)";
+			targetProxy = A0426A5A1B3F63EC00418459 /* PBXContainerItemProxy */;
+		};
+		A0426A5F1B3F63FA00418459 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "XCGLogger (iOS)";
+			targetProxy = A0426A5E1B3F63FA00418459 /* PBXContainerItemProxy */;
+		};
 		A05174751AE4211400BA68B5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = A051745D1AE4211400BA68B5 /* Checklists */;

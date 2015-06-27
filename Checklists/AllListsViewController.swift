@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import XCGLogger
 
 class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate, UINavigationControllerDelegate {
   

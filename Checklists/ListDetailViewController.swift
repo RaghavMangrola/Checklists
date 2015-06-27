@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import XCGLogger
 
 protocol ListDetailViewControllerDelegate: class {
   func listDetailViewControllerDidCancel(controller: ListDetailViewController)

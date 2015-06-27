@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import XCGLogger
 
 class ChecklistItem: NSObject, NSCoding {
   var text = ""

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import XCGLogger
 
 protocol ItemDetailViewControllerDelegate: class {
   func itemDetailViewControllerDidCancel(controller: ItemDetailViewController)

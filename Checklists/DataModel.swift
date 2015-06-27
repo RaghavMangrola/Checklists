@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import XCGLogger
 
 class DataModel {
   var lists = [Checklist]()
