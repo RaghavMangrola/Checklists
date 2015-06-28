@@ -11,39 +11,11 @@ import XCGLogger
 
 class DataModel {
   var lists = [Checklist]()
-  var indexOfSelectedChecklists: Int {
-    get {
-      return NSUserDefaults.standardUserDefaults().integerForKey("ChecklistIndex")
-    }
-    set {
-      NSUserDefaults.standardUserDefaults().setInteger(newValue, forKey: "ChecklistIndex")
-    }
-  }
   
   init() {
     loadChecklists()
     registerDefaults()
     handleFirstTime()
-  }
-  
-  /**
-  This asks the DataModel object for a new item ID whenever the app creates a new ChecklistItem object.
-  Starts at -1 because nextChecklistitemID() adds 1, and we start the index at 0
-  */
-  func registerDefaults() {
-    let dictionary = ["ChecklistIndex": -1, "FirstTime":true, "ChecklistItemID": 0 ]
-    NSUserDefaults.standardUserDefaults().registerDefaults(dictionary)
-  }
-  
-  /**
-  This asks the DataModel object for a new item ID whenever the app creates a new ChecklistItem object.
-  */
-  class func nextChecklistItemID() -> Int {
-    let userDefaults = NSUserDefaults.standardUserDefaults()
-    let itemID = userDefaults.integerForKey("ChecklistItemID")
-    userDefaults.setInteger(itemID + 1, forKey: "ChecklistItemID")
-    userDefaults.synchronize()
-    return itemID
   }
   
   func documentsDirectory() -> String {
@@ -75,7 +47,25 @@ class DataModel {
     }
   }
   
-
+  /**
+  This asks the DataModel object for a new item ID whenever the app creates a new ChecklistItem object.
+  Starts at -1 because nextChecklistitemID() adds 1, and we start the index at 0
+  */
+  func registerDefaults() {
+    let dictionary = ["ChecklistIndex": -1,
+                      "FirstTime":true,
+                      "ChecklistItemID": 0 ]
+    NSUserDefaults.standardUserDefaults().registerDefaults(dictionary)
+  }
+  
+  var indexOfSelectedChecklists: Int {
+    get {
+      return NSUserDefaults.standardUserDefaults().integerForKey("ChecklistIndex")
+    }
+    set {
+      NSUserDefaults.standardUserDefaults().setInteger(newValue, forKey: "ChecklistIndex")
+    }
+  }
   
   /**
   First we check NSUserDefaults for the value of the "FirstTime"
@@ -93,10 +83,22 @@ class DataModel {
       userDefaults.setBool(false, forKey: "FirstTime")
     }
   }
+  
   /**
   Tells the lists array that the Checklists it contains should be sorted using this formula. The forumla is insaide a closure { }. The sort algorithm will repeatedly ask if one Checklist object comes before another, based on our rules for sorting. We chose to sort by name so localizedStandardCompare() will compare the two name strings, it takes into considereation the rules of the current locale. "a" and "A" are considered equal.
   */
   func sortChecklists() {
     lists.sort({checklist1, checklist2 in return checklist1.name.localizedStandardCompare(checklist2.name) == NSComparisonResult.OrderedAscending})
+  }
+  
+  /**
+  This asks the DataModel object for a new item ID whenever the app creates a new ChecklistItem object.
+  */
+  class func nextChecklistItemID() -> Int {
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    let itemID = userDefaults.integerForKey("ChecklistItemID")
+    userDefaults.setInteger(itemID + 1, forKey: "ChecklistItemID")
+    userDefaults.synchronize()
+    return itemID
   }
 }

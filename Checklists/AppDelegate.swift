@@ -18,8 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   let dataModel = DataModel()
     
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    // Override point for customization after application launch.
-    
     log.setup(logLevel: .Debug, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile: nil, fileLogLevel: .Debug)
     
     let navigationController = window!.rootViewController as! UINavigationController
@@ -56,7 +54,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func saveData() {
     dataModel.saveChecklists()
   }
-  
-  
 }
 
