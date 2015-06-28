@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 import XCGLogger
 
 class ChecklistItem: NSObject, NSCoding {
@@ -20,12 +21,9 @@ class ChecklistItem: NSObject, NSCoding {
     checked = !checked
   }
   
-  func encodeWithCoder(aCoder: NSCoder) {
-    aCoder.encodeObject(text, forKey: "Text")
-    aCoder.encodeBool(checked, forKey: "Checked")
-    aCoder.encodeObject(dueDate, forKey: "DueDate")
-    aCoder.encodeBool(shouldRemind, forKey: "ShouldRemind")
-    aCoder.encodeInteger(itemID, forKey: "ItemID")
+  override init() {
+    itemID = DataModel.nextChecklistItemID()
+    super.init()
   }
   
   required init(coder aDecoder: NSCoder) {
@@ -37,8 +35,11 @@ class ChecklistItem: NSObject, NSCoding {
     super.init()
   }
   
-  override init() {
-    itemID = DataModel.nextChecklistItemID()
-    super.init()
+  func encodeWithCoder(aCoder: NSCoder) {
+    aCoder.encodeObject(text, forKey: "Text")
+    aCoder.encodeBool(checked, forKey: "Checked")
+    aCoder.encodeObject(dueDate, forKey: "DueDate")
+    aCoder.encodeBool(shouldRemind, forKey: "ShouldRemind")
+    aCoder.encodeInteger(itemID, forKey: "ItemID")
   }
 }
