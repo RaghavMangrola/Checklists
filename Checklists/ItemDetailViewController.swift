@@ -36,16 +36,27 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
       item.text = textField.text
       item.shouldRemind = shouldRemindSwitch.on
       item.dueDate = dueDate
+      item.scheduleNotification()
       delegate?.itemDetailViewController(self, didFinishEditingItem: item)
-      log.debug("We are editing an item")
     } else {
       let item = ChecklistItem()
       item.text = textField.text
       item.checked = false
       item.shouldRemind = shouldRemindSwitch.on
       item.dueDate = dueDate
+      item.scheduleNotification()
       delegate?.itemDetailViewController(self, didFinishAddingItem: item)
-      log.debug("We are adding an item")
+    }
+  }
+  /**
+      When the switched is toggled to ON, the user is prompted for permission to send local notifications
+  */
+  @IBAction func shouldRemindToggled(switchControl: UISwitch) {
+    textField.resignFirstResponder()
+    
+    if switchControl.on {
+      let notificationSettings = UIUserNotificationSettings(forTypes: .Alert | .Sound, categories: nil)
+      UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
     }
   }
   
@@ -220,7 +231,6 @@ class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
   
   func dateChanged(datePicker: UIDatePicker) {
     dueDate = datePicker.date
-    log.debug("\(self.dueDate)")
     updateDueDateLabel()
   }
 }

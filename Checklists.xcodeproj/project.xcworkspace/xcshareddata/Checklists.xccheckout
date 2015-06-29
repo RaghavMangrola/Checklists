@@ -22,7 +22,7 @@
 		<key>131F2F519C393107625E296DC7900D7EE8E5B1FD</key>
 		<string>../..</string>
 		<key>CD1557C3AE966BEDF3490D85F9712687801B146C</key>
-		<string>../../../../Libraries/XCGLogger</string>
+		<string>../../../Libraries/XCGLogger</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/RaghavMangrola/Checklists.git</string>
