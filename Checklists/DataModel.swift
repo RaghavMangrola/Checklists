@@ -78,6 +78,7 @@ class DataModel {
     let firstTime = userDefaults.boolForKey("FirstTime")
     if firstTime {
       let checklist = Checklist(name: "List")
+      checklist.iconName = "Birthdays"
       lists.append(checklist)
       indexOfSelectedChecklists = 0
       userDefaults.setBool(false, forKey: "FirstTime")
